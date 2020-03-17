@@ -1,10 +1,9 @@
 package main
 
-import (
-	"github.com/goTest/goTour/aPackages"
-)
+import "github.com/goTest/goTour/APackages"
 
 func main() {
 	// Packages
-	aPackages.Packages()
+	APackages.Packages()
+	APackages.FunctionAdd()
 }
