@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"os"
 
-	"git.r.pl/rpl-api/go-moje/pakiet"
+	"github.com/goTest/test_01/pakiet"
 )
 
 func main() {
