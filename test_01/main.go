@@ -1,17 +1,14 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
-	"os"
-
-	"git.r.pl/rpl-api/go-moje/pakiet"
 )
 
 func main() {
-	port := os.Getenv("PORT")
+	port := "80" //os.Getenv("PORT")
+	fmt.Println(port)
 
 	fmt.Println("Dzień dobry")
 
@@ -22,11 +19,23 @@ func main() {
 }
 
 func naszHandler(w http.ResponseWriter, r *http.Request) {
-	cos := pakiet.Pakiet()
+	cos := ""
+	for i := 1; i < 10; i++ {
+		cos += fmt.Sprintf("%d ", i)
+	}
 	log.Println(cos)
-	fmt.Fprintln(w, "Dzień dobry.")
-	fmt.Fprintln(w, cos)
-	jsn, _ := json.Marshal(cos)
-	w.Write(jsn)
+	// fmt.Fprintln(w, "Dzień dobry.")
+	// fmt.Fprintln(w, cos)
+	// jsn, _ := json.Marshal(cos)
+	// w.Write(jsn)
 
+}
+
+// Pakiet opis
+func Pakiet() string {
+	ret := ""
+	for i := 1; i < 10; i++ {
+		ret += fmt.Sprintf("%d ", i)
+	}
+	return ret
 }
