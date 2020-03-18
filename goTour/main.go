@@ -4,6 +4,7 @@ import "github.com/goTest/goTour/APackages"
 
 func main() {
 	// Packages
-	APackages.Packages()
-	APackages.FunctionAdd()
+	APackages.APackages()
+	APackages.BFunctionAdd()
+	APackages.CMultipleResults()
 }
