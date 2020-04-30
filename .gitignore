@@ -13,4 +13,8 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+<<<<<<< HEAD
 __debug_bin
+=======
+*.csv
+>>>>>>> 4573b587f8b829d119d295776f5b9a3462a77678
