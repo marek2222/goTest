@@ -11,8 +11,6 @@
             "mode": "auto",
             "program": "${workspaceFolder}",
             "env": {
-                "SQL_DB": "Server=DEVSQL;Database=GlobII_Test;User ID=RobotUser;Password=T800:ajlbibek;"
-                // "SQL_DB": "Server=it-rs;Database=SamolotyMiejscaTest;User ID=sa;Password=Lucyna111*;"
             }
         },
         {
