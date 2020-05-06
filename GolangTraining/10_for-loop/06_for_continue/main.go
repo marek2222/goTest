@@ -6,6 +6,7 @@ func main() {
 	i := 0
 	for {
 		i++
+		fmt.Print(i)
 		if i%2 == 0 {
 			continue
 		}

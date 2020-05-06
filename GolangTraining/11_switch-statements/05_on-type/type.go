@@ -23,7 +23,6 @@ func SwitchOnType(x interface{}) {
 		fmt.Println("contact")
 	default:
 		fmt.Println("unknown")
-
 	}
 }
 
