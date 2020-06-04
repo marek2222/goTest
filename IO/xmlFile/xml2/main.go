@@ -39,6 +39,7 @@ func main() {
 	p := Plan{PlanCode: "test"}
 	p.UnitAmountInCents.AddCurrency("USD", 4000)
 	p.SetupFeeInCents.AddCurrency("EUR", 2500)
+	p.SetupFeeInCents.AddCurrency("EUR", 3200)
 	file, _ := xml.MarshalIndent(p, "", "    ")
 	file = []byte(xml.Header + string(file))
 	_ = ioutil.WriteFile("notes1.xml", file, 0644)

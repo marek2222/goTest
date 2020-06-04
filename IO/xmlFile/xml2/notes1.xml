@@ -10,5 +10,8 @@
         <EUR>
             <Amount>2500</Amount>
         </EUR>
+        <EUR>
+            <Amount>3200</Amount>
+        </EUR>
     </setup_fee_in_cents>
 </plan>
