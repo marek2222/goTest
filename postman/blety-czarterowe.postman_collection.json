@@ -1,0 +1,290 @@
+{
+	"info": {
+		"_postman_id": "f3f5df4c-a4f9-43c8-ae9a-743023b75b7e",
+		"name": "blety-czarterowe",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Google-Flights",
+			"item": [
+				{
+					"name": "localhost/pobierzOW",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/pobierzOW",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"pobierzOW"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080",
+							"host": [
+								"localhost"
+							],
+							"port": "8080"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost/pobierzRT",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/pobierzRT",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"pobierzRT"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "test.r.pl:8516/pobierzOW",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://bilety-czarterowe-test.r.pl:8516/pobierzOW",
+							"protocol": "http",
+							"host": [
+								"bilety-czarterowe-test",
+								"r",
+								"pl"
+							],
+							"port": "8516",
+							"path": [
+								"pobierzOW"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "test.r.pl:8516/pobierzOUT",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://bilety-czarterowe-test.r.pl:8516/pobierzOUT",
+							"protocol": "http",
+							"host": [
+								"bilety-czarterowe-test",
+								"r",
+								"pl"
+							],
+							"port": "8516",
+							"path": [
+								"pobierzOUT"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "test.r.pl:8516/pobierzIN",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://bilety-czarterowe-test.r.pl:8516/pobierzIN",
+							"protocol": "http",
+							"host": [
+								"bilety-czarterowe-test",
+								"r",
+								"pl"
+							],
+							"port": "8516",
+							"path": [
+								"pobierzIN"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "test.r.pl:8516/pobierzRT",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://bilety-czarterowe-test.r.pl:8516/pobierzRT",
+							"protocol": "http",
+							"host": [
+								"bilety-czarterowe-test",
+								"r",
+								"pl"
+							],
+							"port": "8516",
+							"path": [
+								"pobierzRT"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "destynacja",
+			"item": [
+				{
+					"name": "gflights-local/wykres",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/wykres?iataSkad[]=KTW&iataDokad[]=ZTH&dataUrodzenia[]=1990-01-01,1990-01-02&dataMin=2020-05-01&dataMax=2020-11-01&oneWay=true",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"wykres"
+							],
+							"query": [
+								{
+									"key": "iataSkad[]",
+									"value": "KTW"
+								},
+								{
+									"key": "iataDokad[]",
+									"value": "ZTH"
+								},
+								{
+									"key": "dataUrodzenia[]",
+									"value": "1990-01-01,1990-01-02"
+								},
+								{
+									"key": "dataMin",
+									"value": "2020-05-01"
+								},
+								{
+									"key": "dataMax",
+									"value": "2020-11-01"
+								},
+								{
+									"key": "oneWay",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "gflights-local/wyszukaj-wylot",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/wyszukaj-wylot?iataSkad[]=KTW&iataDokad[]=ZTH&dataUrodzenia[]=1990-01-01,1990-01-02&dataMin=2020-05-01&dataMax=2020-11-01&oneWay=false",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"wyszukaj-wylot"
+							],
+							"query": [
+								{
+									"key": "iataSkad[]",
+									"value": "KTW"
+								},
+								{
+									"key": "iataDokad[]",
+									"value": "ZTH"
+								},
+								{
+									"key": "dataUrodzenia[]",
+									"value": "1990-01-01,1990-01-02"
+								},
+								{
+									"key": "dataMin",
+									"value": "2020-05-01"
+								},
+								{
+									"key": "dataMax",
+									"value": "2020-11-01"
+								},
+								{
+									"key": "oneWay",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "cms-api",
+			"item": [
+				{
+					"name": "http://localhost/pobierz-wszystkie",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:82/pobierz-wszystkie",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "82",
+							"path": [
+								"pobierz-wszystkie"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "localhost/informacje-o-wyjezdzie/budapeszt-i-tokaj-w-krainie-wina-czardasza-i-goracych-zrodel-dla-wygodnych/zakwaterowanie-bux/20201001",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/informacje-o-wyjezdzie/budapeszt-i-tokaj-w-krainie-wina-czardasza-i-goracych-zrodel-dla-wygodnych/zakwaterowanie-bux/20201001",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"informacje-o-wyjezdzie",
+						"budapeszt-i-tokaj-w-krainie-wina-czardasza-i-goracych-zrodel-dla-wygodnych",
+						"zakwaterowanie-bux",
+						"20201001"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

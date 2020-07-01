@@ -1,0 +1,62 @@
+{
+	"id": "563fc243-a15b-4208-9bab-4af2731bbf9b",
+	"name": "sitemap-api",
+	"timestamp": "2020-06-18T14:37:49.615Z",
+	"collection_id": "cd09da91-7fc1-4030-9f1e-2f4ca5b5d2c9",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 0,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "0b77035d-6731-42dd-a3b3-afdb20afb94c",
+			"name": "http://localhost:82/pobierz-wszystkie",
+			"url": "http://localhost:82/pobierz-wszystkie",
+			"time": 75,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				75
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "3a02fa93-d590-4d45-8ae5-10b8eb7bda8a",
+			"name": "http://localhost:82/sitemapIndex",
+			"url": "http://localhost:82/sitemapIndex",
+			"time": 60,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				60
+			],
+			"allTests": [
+				{}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 135,
+	"collection": {
+		"requests": [
+			{
+				"id": "0b77035d-6731-42dd-a3b3-afdb20afb94c",
+				"method": "GET"
+			},
+			{
+				"id": "3a02fa93-d590-4d45-8ae5-10b8eb7bda8a",
+				"method": "GET"
+			}
+		]
+	}
+}

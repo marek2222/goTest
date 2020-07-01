@@ -1,0 +1,448 @@
+{
+	"info": {
+		"_postman_id": "5c940fe9-c89b-4e74-b5a2-69643bf8e25a",
+		"name": "Rainbow2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "WWWRezerwacjaV2",
+			"item": [
+				{
+					"name": "localhost:50188/api/podsumowanierezerwacji_prod",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:50188/api/podsumowanierezerwacji?hash=a2d3d340-bcc8-4bae-8d28-d2d1f7466ff3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "50188",
+							"path": [
+								"api",
+								"podsumowanierezerwacji"
+							],
+							"query": [
+								{
+									"key": "hash",
+									"value": "a2d3d340-bcc8-4bae-8d28-d2d1f7466ff3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:50188/api/podsumowanierezerwacji_test",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:50188/api/podsumowanierezerwacji?hash=00F05CBF-1FBF-4A2C-BC9A-4B5F6D8C63FB",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "50188",
+							"path": [
+								"api",
+								"podsumowanierezerwacji"
+							],
+							"query": [
+								{
+									"key": "hash",
+									"value": "00F05CBF-1FBF-4A2C-BC9A-4B5F6D8C63FB"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "rezerwuj-api-test.r.pl/api/podsumowanierezerwacji2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://rezerwuj-api-test.r.pl/api/podsumowanierezerwacji?hash=a2d3d340-bcc8-4bae-8d28-d2d1f7466ff3",
+							"protocol": "https",
+							"host": [
+								"rezerwuj-api-test",
+								"r",
+								"pl"
+							],
+							"path": [
+								"api",
+								"podsumowanierezerwacji"
+							],
+							"query": [
+								{
+									"key": "hash",
+									"value": "a2d3d340-bcc8-4bae-8d28-d2d1f7466ff3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "rezerwuj-api-test.r.pl/api/podsumowanierezerwacji2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://rezerwuj-api-test.r.pl/api/podsumowanierezerwacji?hash=a8cbb5d4-1072-416e-a725-059b37b26b50",
+							"protocol": "http",
+							"host": [
+								"rezerwuj-api-test",
+								"r",
+								"pl"
+							],
+							"path": [
+								"api",
+								"podsumowanierezerwacji"
+							],
+							"query": [
+								{
+									"key": "hash",
+									"value": "a8cbb5d4-1072-416e-a725-059b37b26b50"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:50188/api/rezerwacja?prod1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:50188/api/rezerwacja?dataStart=2020-12-17&hash=&hotelId=1059&hotelParams=1_1059_6&kodWycieczki=FUA&liczbaDoroslych=2&liczbaDzieci=0&liczbaPokoi=1&nowe=true&pokojParams=1_1_35_1322_0&seller=false&typWycieczki=wypoczynek&wybraneMiastoWyjazdu=Katowice&wybraneWyzywienie=&wybranyHotelNaPrzedluzenie=0",
+							"host": [
+								"localhost"
+							],
+							"port": "50188",
+							"path": [
+								"api",
+								"rezerwacja"
+							],
+							"query": [
+								{
+									"key": "dataStart",
+									"value": "2020-12-17"
+								},
+								{
+									"key": "hash",
+									"value": ""
+								},
+								{
+									"key": "hotelId",
+									"value": "1059"
+								},
+								{
+									"key": "hotelParams",
+									"value": "1_1059_6"
+								},
+								{
+									"key": "kodWycieczki",
+									"value": "FUA"
+								},
+								{
+									"key": "liczbaDoroslych",
+									"value": "2"
+								},
+								{
+									"key": "liczbaDzieci",
+									"value": "0"
+								},
+								{
+									"key": "liczbaPokoi",
+									"value": "1"
+								},
+								{
+									"key": "nowe",
+									"value": "true"
+								},
+								{
+									"key": "pokojParams",
+									"value": "1_1_35_1322_0"
+								},
+								{
+									"key": "seller",
+									"value": "false"
+								},
+								{
+									"key": "typWycieczki",
+									"value": "wypoczynek"
+								},
+								{
+									"key": "wybraneMiastoWyjazdu",
+									"value": "Katowice"
+								},
+								{
+									"key": "wybraneWyzywienie",
+									"value": ""
+								},
+								{
+									"key": "wybranyHotelNaPrzedluzenie",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "rezerwuj-api.r.pl/api/rezerwacja?prod1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://rezerwuj-api.r.pl/api/rezerwacja?dataStart=2020-12-17&hash=&hotelId=1059&hotelParams=1_1059_6&kodWycieczki=FUA&liczbaDoroslych=2&liczbaDzieci=0&liczbaPokoi=1&nowe=true&pokojParams=1_1_35_1322_0&seller=false&typWycieczki=wypoczynek&wybraneMiastoWyjazdu=Katowice&wybraneWyzywienie=&wybranyHotelNaPrzedluzenie=0",
+							"protocol": "https",
+							"host": [
+								"rezerwuj-api",
+								"r",
+								"pl"
+							],
+							"path": [
+								"api",
+								"rezerwacja"
+							],
+							"query": [
+								{
+									"key": "dataStart",
+									"value": "2020-12-17"
+								},
+								{
+									"key": "hash",
+									"value": ""
+								},
+								{
+									"key": "hotelId",
+									"value": "1059"
+								},
+								{
+									"key": "hotelParams",
+									"value": "1_1059_6"
+								},
+								{
+									"key": "kodWycieczki",
+									"value": "FUA"
+								},
+								{
+									"key": "liczbaDoroslych",
+									"value": "2"
+								},
+								{
+									"key": "liczbaDzieci",
+									"value": "0"
+								},
+								{
+									"key": "liczbaPokoi",
+									"value": "1"
+								},
+								{
+									"key": "nowe",
+									"value": "true"
+								},
+								{
+									"key": "pokojParams",
+									"value": "1_1_35_1322_0"
+								},
+								{
+									"key": "seller",
+									"value": "false"
+								},
+								{
+									"key": "typWycieczki",
+									"value": "wypoczynek"
+								},
+								{
+									"key": "wybraneMiastoWyjazdu",
+									"value": "Katowice"
+								},
+								{
+									"key": "wybraneWyzywienie",
+									"value": ""
+								},
+								{
+									"key": "wybranyHotelNaPrzedluzenie",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "rezerwuj-api-test.r.pl/api/rezerwacja?prod1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://rezerwuj-api-test.r.pl/api/rezerwacja?dataStart=2020-12-17&hash=&hotelId=1059&hotelParams=1_1059_6&kodWycieczki=FUA&liczbaDoroslych=2&liczbaDzieci=0&liczbaPokoi=1&nowe=true&pokojParams=1_1_35_1322_0&seller=false&typWycieczki=wypoczynek&wybraneMiastoWyjazdu=Katowice&wybraneWyzywienie=&wybranyHotelNaPrzedluzenie=0",
+							"protocol": "https",
+							"host": [
+								"rezerwuj-api-test",
+								"r",
+								"pl"
+							],
+							"path": [
+								"api",
+								"rezerwacja"
+							],
+							"query": [
+								{
+									"key": "dataStart",
+									"value": "2020-12-17"
+								},
+								{
+									"key": "hash",
+									"value": ""
+								},
+								{
+									"key": "hotelId",
+									"value": "1059"
+								},
+								{
+									"key": "hotelParams",
+									"value": "1_1059_6"
+								},
+								{
+									"key": "kodWycieczki",
+									"value": "FUA"
+								},
+								{
+									"key": "liczbaDoroslych",
+									"value": "2"
+								},
+								{
+									"key": "liczbaDzieci",
+									"value": "0"
+								},
+								{
+									"key": "liczbaPokoi",
+									"value": "1"
+								},
+								{
+									"key": "nowe",
+									"value": "true"
+								},
+								{
+									"key": "pokojParams",
+									"value": "1_1_35_1322_0"
+								},
+								{
+									"key": "seller",
+									"value": "false"
+								},
+								{
+									"key": "typWycieczki",
+									"value": "wypoczynek"
+								},
+								{
+									"key": "wybraneMiastoWyjazdu",
+									"value": "Katowice"
+								},
+								{
+									"key": "wybraneWyzywienie",
+									"value": ""
+								},
+								{
+									"key": "wybranyHotelNaPrzedluzenie",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "WWWRainbowToursV2",
+			"item": [
+				{
+					"name": "FacultativeTrips.WebApp",
+					"item": [
+						{
+							"name": "http://wycieczki-lokalne-api-test.r.pl/api",
+							"protocolProfileBehavior": {
+								"followAuthorizationHeader": true
+							},
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": [
+										{
+											"key": "accessToken",
+											"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjA4QkZCNzkxRjQ2NjcyNjFDMkU4MkFBMjAwMTgwQzk5NkUwRUM1RjEiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJDTC0za2ZSbWNtSEM2Q3FpQUJnTW1XNE94ZkUifQ.eyJuYmYiOjE1ODcxMjI1MTAsImV4cCI6MTU4NzEyNjExMCwiaXNzIjoiaHR0cHM6Ly96YWxvZ3VqLXRlc3Quci5wbCIsImF1ZCI6WyJodHRwczovL3phbG9ndWotdGVzdC5yLnBsL3Jlc291cmNlcyIsImFwaS53eWNpZWN6a2lfZmFrdWx0YXR5d25lIl0sImNsaWVudF9pZCI6ImpzLnBhbmVsX2tsaWVudGEiLCJzdWIiOiI1ZjU2NTkzMi00MzdmLTRlNmEtNmIzNC0wOGQ3ZGQzNmUxYTAiLCJhdXRoX3RpbWUiOjE1ODcxMjA0NzQsImlkcCI6ImxvY2FsIiwic2NvcGUiOlsiYXBpLnd5Y2llY3praV9mYWt1bHRhdHl3bmUucGFuZWxfa2xpZW50YSJdLCJhbXIiOlsicHdkIl19.ZXCEj9Ru8peOP1rYtyR6L8Zb2W6QLDCzK6kGk-LhdnMUPgTY1Say2PHLGoBNnWYx0vC7Yj0dd6xBlg3meqFPqa-zZL9_nz0kri-8ur82BhNyT4uRm-SWnMEzyrNz45ukqlAxByS4OBz6BMZfrFrdpxSTVDJWWNGmyJpuMj1h8iky2AtrOrykN1FqUEEGi0KPxMrpiniglWr9VuMggtzMiOXiixYYd3QM8jhRNFEnFlByhaE24DCBvJLh2n7HxdKbzoDkUTIXniMxbsrISKNl_zzCfqEFceVs5K3crXgdVhYiGM0nQ_fEPWdBYocpxFKiJIutdsbzdgiOcOlTCq5HOw",
+											"type": "string"
+										},
+										{
+											"key": "tokenType",
+											"value": "Bearer",
+											"type": "string"
+										},
+										{
+											"key": "addTokenTo",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://wycieczki-lokalne-api-test.r.pl/api/PanelWycieczkiDlaZamowienia/4164243",
+									"protocol": "https",
+									"host": [
+										"wycieczki-lokalne-api-test",
+										"r",
+										"pl"
+									],
+									"path": [
+										"api",
+										"PanelWycieczkiDlaZamowienia",
+										"4164243"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "http://localhost:64076/api/PanelWycieczkiDlaZamowienia",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:64076/api/PanelWycieczkiDlaZamowienia/4164243",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "64076",
+									"path": [
+										"api",
+										"PanelWycieczkiDlaZamowienia",
+										"4164243"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
