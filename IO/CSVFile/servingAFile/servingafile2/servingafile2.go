@@ -1,4 +1,4 @@
-package servingAFile
+package servingafile2
 
 import (
 	"fmt"

@@ -4,12 +4,12 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/goTest/IO/CSVFile/servingAFile/servingAFile"
+	"github.com/marek2222/goTest/IO/CSVFile/servingAFile/servingafile2"
 )
 
 func main() {
 	// 3: simpleUsage
-	router := servingAFile.ServingAFile()
+	router := servingafile2.ServingAFile()
 
 	log.Fatal(http.ListenAndServe(":8080", router))
 }
