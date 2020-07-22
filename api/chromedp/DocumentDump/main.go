@@ -5,7 +5,10 @@ package main
 import (
 	"context"
 	"fmt"
+	"io"
+	"net/http"
 	"net/http/httptest"
+	"strings"
 
 	"github.com/chromedp/cdproto/cdp"
 	"github.com/chromedp/cdproto/runtime"
@@ -55,4 +58,12 @@ func main() {
 
 	fmt.Println("Document tree:")
 	fmt.Print(nodes[0].Dump("  ", "  ", false))
+}
+
+func writeHTML(content string) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		//utf-8
+		w.Header().Set("Content-Type", "text/html; charset=utf-8")
+		io.WriteString(w, strings.TrimSpace(content))
+	})
 }
