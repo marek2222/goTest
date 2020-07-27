@@ -4,6 +4,7 @@ import "fmt"
 
 func main() {
 	c := incrementor()
+	fmt.Println(c)
 	cSum := puller(c)
 	for n := range cSum {
 		fmt.Println(n)
