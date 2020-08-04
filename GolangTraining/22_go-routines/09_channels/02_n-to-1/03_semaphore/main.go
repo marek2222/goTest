@@ -31,5 +31,7 @@ func main() {
 
 	for n := range c {
 		fmt.Println(n)
+		//fmt.Println(done)
+		//fmt.Println(done)
 	}
 }

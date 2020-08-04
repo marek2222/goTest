@@ -8,10 +8,12 @@ import (
 var wg sync.WaitGroup
 
 func main() {
+	fmt.Println("Początek współbieżności")
 	wg.Add(2)
 	go foo()
 	go bar()
 	wg.Wait()
+	fmt.Println("Koniec współbieżności")
 }
 
 func foo() {
