@@ -23,3 +23,4 @@ func factorial(n int) chan int {
 	}()
 	return out
 }
+

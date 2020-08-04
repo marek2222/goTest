@@ -1,1 +1,1 @@
-2016/02/17 04:35:28 err happened open no-file.txt: no such file or directory
+2020/07/29 13:45:50 err happened open no-file.txt: Nie można odnaleźć określonego pliku.
