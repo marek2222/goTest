@@ -20,7 +20,7 @@ func main() {
 
 func incrementor(s string) {
 	rand.Seed(time.Now().UnixNano())
-	for i := 0; i < 20; i++ {
+	for i := 0; i < 17; i++ {
 		x := counter
 		x++
 		time.Sleep(time.Duration(rand.Intn(3)) * time.Millisecond)
