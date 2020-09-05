@@ -6,7 +6,7 @@ import (
 )
 
 // TmpDir temporary directory location
-const TmpDir = "github.com/marek2222/goTest/IO/CSVFile/servingAFile/servingafile3"
+const TmpDir = "github.com/marek2222/goTest/IO/CSVFile/servingafile3"
 
 func main() {
 
