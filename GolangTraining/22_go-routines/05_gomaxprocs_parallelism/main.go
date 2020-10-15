@@ -27,7 +27,7 @@ func main() {
 }
 
 func foo() {
-	for i := 0; i < 20; i++ {
+	for i := 0; i < 17; i++ {
 		fmt.Println("Foo:", i)
 		time.Sleep(3 * time.Millisecond)
 	}
@@ -35,7 +35,7 @@ func foo() {
 }
 
 func bar() {
-	for i := 0; i < 20; i++ {
+	for i := 0; i < 17; i++ {
 		fmt.Println("Bar:", i)
 		time.Sleep(20 * time.Millisecond)
 	}
