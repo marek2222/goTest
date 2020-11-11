@@ -39,8 +39,7 @@ func sprawdzDanyPlik(nazwa string) error {
 		if err != nil {
 			return errors.New("p.GetRows(sh): " + err.Error())
 		}
-		log.Println("Arkusz: index:", index, ";  nazwa:", sh)
-		log.Println("	Liczba kolumn i wierszy:", len(wiersze[0]), len(wiersze))
+		log.Println("Plik:", nazwa, " Arkusz:", index, " nazwa:", sh, " kolumn:", len(wiersze[0]), " wierszy:", len(wiersze))
 		log.Println("")
 
 		err = usunPustyWiersz(p, sh, wiersze, nazwa)
@@ -48,100 +47,119 @@ func sprawdzDanyPlik(nazwa string) error {
 			return errors.New("usunPustyWiersz(): " + err.Error())
 		}
 
-		err = sprawdzKolInt(p, wiersze, sh, nazwa, "ZamId", true)
+		err = musiKolInt(p, wiersze, sh, nazwa, "ZamId")
 		if err != nil {
-			return errors.New("sprawdzKolInt(): " + err.Error())
+			return errors.New("musiKolInt(): " + err.Error())
+		}
+
+		err = ustawKolInt(p, wiersze, sh, nazwa, "ZamId")
+		if err != nil {
+			return errors.New("musiKolInt(): " + err.Error())
 		}
 	}
 
-	err = p.SaveAs(nazwa)
+	err = zapiszExcela(p, nazwa)
 	if err != nil {
-		return errors.New("xslx.SaveAs(): " + err.Error())
+		return err
 	}
 
 	return nil
 }
 
-func sprawdzKolInt(p *excelize.File, wiersze [][]string, sh, nazwa, nazwaKol string, wymagana bool) error {
+func musiKolInt(p *excelize.File, wiersze [][]string, sh, nazwa, nazwaKol string) error {
+	var err error
 	idxKol := -1
 	nazwaKol = strings.ToLower(nazwaKol)
 
 	for nrWiersza, wiersz := range wiersze {
 
-		// w pierwszym wierszu szukaj idxKol
+		// w pierwszym wierszu szukaj idxKol, w kolejnych sprawdz wartości
 		if idxKol == -1 {
-			for idx := 0; idx < len(wiersz); idx++ {
-				czyNazwaKol := strings.Contains(strings.ToLower(wiersz[idx]), nazwaKol)
-				if nrWiersza == 0 && czyNazwaKol {
-					idxKol = idx
-					break
-				}
+			idxKol, err = indexKolPoNazwie(wiersz, nrWiersza, nazwaKol)
+			if err != nil {
+				return err
 			}
 		} else {
-
 			wartStr := wiersz[idxKol]
-			if wymagana {
-				wartosc, err := strconv.Atoi(wartStr)
-				if err != nil {
-					return errors.New("strconv.Atoi(" + wartStr + "): " + err.Error())
-				}
-
-				if wartosc < 1 {
-					return errors.New("wartość jest wymagana i musi być większa od zera: " + strconv.Itoa(wartosc))
-				}
-			} else {
-
-				_, err := strconv.Atoi(wartStr)
-				if err != nil {
-					if wartStr == "" {
-						os, err := excelize.CoordinatesToCellName(idxKol+1, nrWiersza+1)
-						if err != nil {
-							return errors.New("hlp.CoordinatesToCellName(): " + err.Error())
-						}
-						p.SetCellInt(sh, os, 0)
-					} else {
-						return errors.New("strconv.Atoi(" + wartStr + "): " + err.Error())
-					}
-				}
+			err := czyIntWiekszyOdZera(wartStr)
+			if err != nil {
+				return err
 			}
 		}
 	}
 	return nil
 }
 
-// func ustawOs(x, y int) string {
-// 	wynik := ""
-// 	litery := map[int]string{
-// 		0:  "A",
-// 		1:  "B",
-// 		2:  "C",
-// 		3:  "D",
-// 		4:  "E",
-// 		5:  "F",
-// 		6:  "G",
-// 		7:  "H",
-// 		8:  "I",
-// 		9:  "J",
-// 		10: "K",
-// 		11: "L",
-// 		12: "M",
-// 		13: "N",
-// 		14: "O",
-// 		15: "P",
-// 		16: "Q",
-// 		17: "R",
-// 		18: "S",
-// 		19: "T",
-// 		20: "U",
-// 		21: "V",
-// 		22: "W",
-// 		23: "X",
-// 		24: "Y",
-// 		25: "Z",
-// 	}
-// 	wynik = litery[x]
-// 	return wynik
-// }
+func ustawKolInt(p *excelize.File, wiersze [][]string, sh, nazwa, nazwaKol string) error {
+	var err error
+	idxKol := -1
+	nazwaKol = strings.ToLower(nazwaKol)
+
+	for nrWiersza, wiersz := range wiersze {
+
+		// w pierwszym wierszu szukaj idxKol, w kolejnych sprawdz wartości
+		if idxKol == -1 {
+			idxKol, err = indexKolPoNazwie(wiersz, nrWiersza, nazwaKol)
+			if err != nil {
+				return err
+			}
+		} else {
+			wartStr := wiersz[idxKol]
+			nrKol := idxKol + 1
+			nrWie := nrWiersza + 1
+			err := ustawKomorkeJakoIntZero(p, wartStr, sh, nrKol, nrWie)
+			if err != nil {
+				return err
+			}
+		}
+	}
+	return nil
+}
+
+func ustawKomorkeJakoIntZero(p *excelize.File, wartStr, sh string, nrKol, nrWie int) error {
+	_, err := strconv.Atoi(wartStr)
+	if err != nil {
+		return errors.New("strconv.Atoi(" + wartStr + "): " + err.Error())
+	}
+
+	if wartStr == "" {
+		os, err := excelize.CoordinatesToCellName(nrKol, nrWie)
+		if err != nil {
+			return errors.New("hlp.CoordinatesToCellName(): " + err.Error())
+		}
+
+		p.SetCellInt(sh, os, 0)
+	}
+	return nil
+}
+
+func czyIntWiekszyOdZera(wartStr string) error {
+	wartosc, err := strconv.Atoi(wartStr)
+	if err != nil {
+		return errors.New("strconv.Atoi(" + wartStr + "): " + err.Error())
+	}
+
+	if wartosc < 1 {
+		return errors.New("wartość jest wymagana i musi być większa od zera: " + strconv.Itoa(wartosc))
+	}
+	return nil
+}
+
+func indexKolPoNazwie(wiersz []string, nrWiersza int, nazwaKol string) (int, error) {
+	idxKol := -1
+	for idx := 0; idx < len(wiersz); idx++ {
+		czyNazwaKol := strings.Contains(strings.ToLower(wiersz[idx]), nazwaKol)
+		if nrWiersza == 0 && czyNazwaKol {
+			idxKol = idx
+			break
+		}
+	}
+	if idxKol == -1 {
+		nrWierszaStr := strconv.Itoa(nrWiersza)
+		return idxKol, errors.New("indexKolPoNazwie(): brak indeksu dla kolumny: " + nazwaKol + "; nrWiersza:" + nrWierszaStr)
+	}
+	return idxKol, nil
+}
 
 func usunPustyWiersz(p *excelize.File, sh string, wiersze [][]string, nazwa string) error {
 
@@ -152,9 +170,9 @@ func usunPustyWiersz(p *excelize.File, sh string, wiersze [][]string, nazwa stri
 			log.Println("Wiersz " + strconv.Itoa(nrWiersza+1) + " jest pusty i będzie usuwany!!!")
 			p.RemoveRow(sh, nrWiersza)
 
-			err := p.SaveAs(nazwa)
+			err := zapiszExcela(p, nazwa)
 			if err != nil {
-				return errors.New("xslx.SaveAs()2: " + err.Error())
+				return err
 			}
 
 			err = sprawdzDanyPlik(nazwa)
@@ -185,4 +203,12 @@ func czyPystyWiersz(wiersz []string, liczbaKolumn int) bool {
 	}
 
 	return czyPystyWiersz
+}
+
+func zapiszExcela(p *excelize.File, nazwa string) error {
+	err := p.SaveAs(nazwa)
+	if err != nil {
+		return errors.New("xslx.SaveAs(): " + err.Error())
+	}
+	return nil
 }
