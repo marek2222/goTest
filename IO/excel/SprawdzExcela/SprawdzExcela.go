@@ -40,14 +40,14 @@ func sprawdzDanyPlik(nazwa string) error {
 		log.Println("	Liczba kolumn i wierszy:", len(wiersze[0]), len(wiersze))
 		log.Println("")
 
-		sprawdzCzyPustyWiersz(p, sh, nazwa, wiersze)
+		err := usunPustyWiersz(p, sh, wiersze, nazwa)
 		if err != nil {
-			return errors.New("sprawdzCzyPustyWiersz(): " + err.Error())
+			return errors.New("usunPustyWiersz(): " + err.Error())
 		}
 
-		sprawdzCzyZamowienieID(p, sh, nazwa, wiersze)
+		err = sprawdzKolInt(p, wiersze, sh, nazwa, "ZamId", true)
 		if err != nil {
-			return errors.New("sprawdzCzyZamowienieID(): " + err.Error())
+			return errors.New("sprawdzKolInt(): " + err.Error())
 		}
 	}
 
@@ -59,39 +59,85 @@ func sprawdzDanyPlik(nazwa string) error {
 	return nil
 }
 
-func sprawdzCzyZamowienieID(p *excelize.File, sh, nazwa string, wiersze [][]string) error {
-	// B1 ZamowienieId
-	// index = 2-1 = 1
-	nrKol := 1
-	slowo := strings.ToLower("ZamowienieId")
-	czyZamID := false
+func sprawdzKolInt(p *excelize.File, wiersze [][]string, sh, nazwa, nazwaKol string, wymagana bool) error {
+	idxKol := -1
+	nazwaKol = strings.ToLower(nazwaKol)
 
 	for nrWiersza, wiersz := range wiersze {
 
-		zawieraZamID := strings.Contains(strings.ToLower(wiersz[nrKol]), slowo)
-		if nrWiersza == 0 && zawieraZamID {
-			czyZamID = true
-		}
-
-		if czyZamID {
-			wartosc := wiersz[nrKol]
-			zamID, err := strconv.Atoi(wartosc)
-			if err != nil {
-				return errors.New("strconv.Atoi(" + wartosc + "): " + err.Error())
+		// w pierwszym wierszu szukaj idxKol
+		if idxKol == -1 {
+			for idx := 0; idx < len(wiersz); idx++ {
+				czyNazwaKol := strings.Contains(strings.ToLower(wiersz[idx]), nazwaKol)
+				if nrWiersza == 0 && czyNazwaKol {
+					idxKol = idx
+					break
+				}
 			}
+		} else {
 
-			if zamID > 0 {
+			wartStr := wiersz[idxKol]
+			if wymagana {
+				wartosc, err := strconv.Atoi(wartStr)
+				if err != nil {
+					return errors.New("strconv.Atoi(" + wartStr + "): " + err.Error())
+				}
 
+				if wartosc < 1 {
+					return errors.New("wartość jest wymagana i musi być większa od zera: " + strconv.Itoa(wartosc))
+				}
+			} else {
+
+				_, err := strconv.Atoi(wartStr)
+				if err != nil {
+					if wartStr == "" {
+						ustawOs(idxKol, nrWiersza)
+						p.SetCellInt(sh, "", 0)
+					} else {
+						return errors.New("strconv.Atoi(" + wartStr + "): " + err.Error())
+					}
+				}
 			}
-			//czyPustaKomorka()
 		}
-
 	}
-
 	return nil
 }
 
-func sprawdzCzyPustyWiersz(p *excelize.File, sh, nazwa string, wiersze [][]string) error {
+func ustawOs(x, y int) string {
+	wynik := ""
+	litery := map[int]string{
+		0:  "A",
+		1:  "B",
+		2:  "C",
+		3:  "D",
+		4:  "E",
+		5:  "F",
+		6:  "G",
+		7:  "H",
+		8:  "I",
+		9:  "J",
+		10: "K",
+		11: "L",
+		12: "M",
+		13: "N",
+		14: "O",
+		15: "P",
+		16: "Q",
+		17: "R",
+		18: "S",
+		19: "T",
+		20: "U",
+		21: "V",
+		22: "W",
+		23: "X",
+		24: "Y",
+		25: "Z",
+	}
+	wynik = litery[x]
+	return wynik
+}
+
+func usunPustyWiersz(p *excelize.File, sh string, wiersze [][]string, nazwa string) error {
 
 	liczbaKolumn := len(wiersze[0])
 
