@@ -1,4 +1,4 @@
-package main
+package excel
 
 import (
 	"errors"
@@ -52,9 +52,9 @@ func sprawdzDanyPlik(nazwa string) error {
 			return errors.New("musiKolInt(): " + err.Error())
 		}
 
-		err = ustawKolInt(p, wiersze, sh, nazwa, "ZamId")
+		err = ustawKolInt(p, wiersze, sh, nazwa, "suma1")
 		if err != nil {
-			return errors.New("musiKolInt(): " + err.Error())
+			return errors.New("ustawKolInt(): " + err.Error())
 		}
 	}
 
@@ -117,11 +117,6 @@ func ustawKolInt(p *excelize.File, wiersze [][]string, sh, nazwa, nazwaKol strin
 }
 
 func ustawKomorkeJakoIntZero(p *excelize.File, wartStr, sh string, nrKol, nrWie int) error {
-	_, err := strconv.Atoi(wartStr)
-	if err != nil {
-		return errors.New("strconv.Atoi(" + wartStr + "): " + err.Error())
-	}
-
 	if wartStr == "" {
 		os, err := excelize.CoordinatesToCellName(nrKol, nrWie)
 		if err != nil {
@@ -129,7 +124,13 @@ func ustawKomorkeJakoIntZero(p *excelize.File, wartStr, sh string, nrKol, nrWie 
 		}
 
 		p.SetCellInt(sh, os, 0)
+	} else {
+		_, err := strconv.Atoi(wartStr)
+		if err != nil {
+			return errors.New("strconv.Atoi(" + wartStr + "): " + err.Error())
+		}
 	}
+
 	return nil
 }
 
