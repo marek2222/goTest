@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	requestGetBilety()
+	//requestGetBilety()
 	requestGET()
 	requestPOST()
 	customRequest()
@@ -66,13 +66,14 @@ func customRequest() {
 	if err != nil {
 		log.Fatalln(err)
 	}
+	log.Println("\n Custom request:")
 	log.Println(string(body))
 }
 
 func requestPOST() {
 	requestBody, err := json.Marshal(map[string]string{
-		"name":  "marek nieznany",
-		"email": "marek@o2.pl",
+		"name":  "leon nieznany",
+		"email": "leon@o2.pl",
 	})
 	if err != nil {
 		log.Fatalln(err)
