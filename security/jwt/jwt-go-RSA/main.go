@@ -30,7 +30,7 @@ func main() {
 	fmt.Println(publicKey.E)
 
 	message := "super secret message"
-	fmt.Println("message: "+ message)
+	fmt.Println("message: " + message)
 	encryptedBytes, err := rsa.EncryptOAEP(
 		sha256.New(),
 		rand.Reader,
