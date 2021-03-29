@@ -15,8 +15,14 @@ import (
 	"os"
 )
 
+// go run main.go https://cs.lipsum.com/
+// go run main.go http://badgolang.pl
+
 func main() {
 	//ioutil_ReadAll()
+
+	fmt.Println("")
+	fmt.Println("----------------------")
 
 	io_copy()
 }
@@ -38,7 +44,7 @@ func ioutil_ReadAll() {
 			os.Exit(1)
 		}
 		fmt.Println("----------------------")
-		fmt.Printf("%s", b)
+		fmt.Printf("%s\n", b)
 	}
 }
 
@@ -64,10 +70,8 @@ func io_copy() {
 			os.Exit(1)
 		}
 		fmt.Println("----------------------")
-		fmt.Printf("%v", b)
+		fmt.Printf("%v\n", b)
 	}
 }
 
 //!-
-// go run main.go https://cs.lipsum.com/
-// go run main.go http://badgolang.pl
