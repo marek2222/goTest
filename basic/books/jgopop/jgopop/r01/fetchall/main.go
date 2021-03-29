@@ -3,7 +3,8 @@
 
 //!+
 
-// Fetchall pobiera równolegle zawartości kilku adresów URL i raportuje czasy pobierania oraz rozmiary odpowiedzi.
+// Fetchall pobiera równolegle zawartości kilku adresów URL i raportuje czasy pobierania 
+// oraz rozmiary odpowiedzi.
 package main
 
 import (
