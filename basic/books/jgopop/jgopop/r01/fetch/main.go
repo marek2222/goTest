@@ -13,18 +13,20 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strings"
 )
 
 // go run main.go https://cs.lipsum.com/
 // go run main.go http://badgolang.pl
 
 func main() {
-	//ioutil_ReadAll()
+	// ioutil_ReadAll()
 
-	fmt.Println("")
-	fmt.Println("----------------------")
+	// io_copy()
 
-	io_copy()
+	http_prefix()
+
+	resp_status()
 }
 
 func ioutil_ReadAll() {
@@ -44,7 +46,7 @@ func ioutil_ReadAll() {
 			os.Exit(1)
 		}
 		fmt.Println("----------------------")
-		fmt.Printf("%s\n", b)
+		fmt.Printf("Bytes: %s\n", b)
 	}
 }
 
@@ -70,7 +72,60 @@ func io_copy() {
 			os.Exit(1)
 		}
 		fmt.Println("----------------------")
-		fmt.Printf("%v\n", b)
+		fmt.Printf("Bytes: %v\n", b)
+	}
+}
+
+func http_prefix() {
+	for _, url := range os.Args[1:] {
+		if !strings.HasPrefix(url, "http://") {
+			url = "http://" + url
+		}
+		log.Printf("url: %v\n", url)
+
+		resp, err := http.Get(url)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "fetch: %v\n", err)
+			os.Exit(1)
+		}
+		log.Printf("resp: %v\n", resp)
+		fmt.Println("----------------------")
+
+		b, err := ioutil.ReadAll(resp.Body)
+		resp.Body.Close() // aby nie wyciekały zasoby
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "fetch: odczytywanie %s: %v\n", url, err)
+			os.Exit(1)
+		}
+		fmt.Println("----------------------")
+		fmt.Printf("Bytes: %s\n", b)
+	}
+}
+
+func resp_status() {
+	for _, url := range os.Args[1:] {
+		if !strings.HasPrefix(url, "http://") {
+			url = "http://" + url
+		}
+		log.Printf("url: %v\n", url)
+
+		resp, err := http.Get(url)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "fetch: %v\n", err)
+			os.Exit(1)
+		}
+		log.Printf("resp: %v\n", resp)
+		fmt.Println("----------------------")
+
+		b, err := ioutil.ReadAll(resp.Body)
+		resp.Body.Close() // aby nie wyciekały zasoby
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "fetch: odczytywanie %s: %v\n", url, err)
+			os.Exit(1)
+		}
+		fmt.Println("----------------------")
+		fmt.Printf("Bytes: %d\n", len(b))
+		fmt.Printf("resp.Status: %s\n", resp.Status)
 	}
 }
 
